@@ -1,0 +1,21 @@
+# docker-compose.yml
+version: '2'
+
+services:
+  web:
+    image: adguard/adguardhome
+    ports:
+     - "53:53/tcp"
+     - "53:53/udp"
+     - "80:80/tcp"
+     - "3000:3000/tcp"
+     - "67:67/udp"
+     - "68:68/tcp"
+     - "68:68/udp"
+     - "443:443/tcp"
+     - "853:853/tcp"
+    volumes:
+     - ./work:/opt/adguardhome/work
+     - ./conf:/opt/adguardhome/conf
+  redis:
+    image: redis
